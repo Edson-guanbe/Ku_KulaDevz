@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevenir scroll horizontal */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Garantir que todos os elementos não ultrapassem a largura da tela */
+* {
+  box-sizing: border-box;
+}
+
+/* Container principal */
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+:root {
+  /* Cores baseadas na logo Ku_KulaDevz */
+  --brand-blue-dark: #1e3a8a;
+  --brand-blue: #0ea5e9;
+  --brand-green: #22c55e;
+  --brand-gradient: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 50%, #22c55e 100%);
+}
+
+/* Classe para gradiente da logo */
+.logo-gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Classe para fundo com gradiente */
+.bg-logo-gradient {
+  background: var(--brand-gradient);
+}
+
+/* Classe para borda com gradiente */
+.border-logo-gradient {
+  border-image: var(--brand-gradient) 1;
+}
+
+/* Atualizar a cor brand-green para a nova cor */
+.text-brand-green {
+  color: var(--brand-green);
+}
+
+.bg-brand-green {
+  background-color: var(--brand-green);
+}
+
+.border-brand-green {
+  border-color: var(--brand-green);
+}
+
+/* Novas classes para as cores da logo */
+.text-brand-blue {
+  color: var(--brand-blue);
+}
+
+.text-brand-blue-dark {
+  color: var(--brand-blue-dark);
+}
+
+.bg-brand-blue {
+  background-color: var(--brand-blue);
+}
+
+.bg-brand-blue-dark {
+  background-color: var(--brand-blue-dark);
+}

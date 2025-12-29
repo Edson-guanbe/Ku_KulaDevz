@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Instagram, Linkedin } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Instagram, Linkedin, X, Globe } from 'lucide-react';
 import { Translation, Member } from '../types';
 
 interface TeamProps {
@@ -9,6 +9,21 @@ interface TeamProps {
 }
 
 const Team: React.FC<TeamProps> = ({ t, members }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
+  const handleSocialClick = (url: string | undefined, platform: string, memberName: string) => {
+    if (!url || url === "#") {
+      const platformText = platform === "Portfólio" ? "portfólio" : platform;
+      setModalMessage(`${memberName} ainda não disponibilizou seu ${platformText}. Em breve estará disponível!`);
+      setShowModal(true);
+      return false;
+    }
+    return true;
+  };
+
+
+
   return (
     <section id="team" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,14 +48,13 @@ const Team: React.FC<TeamProps> = ({ t, members }) => {
               transition={{ delay: index * 0.05 }}
               className="bg-white rounded-xl p-8 border border-gray-200 hover:border-brand-green/50 transition-all duration-300 shadow-lg hover:shadow-xl group"
             >
-              <div className="relative w-32 h-32 mx-auto mb-6">
-                <div className="absolute inset-0 bg-brand-green/20 rounded-full blur-lg group-hover:bg-brand-green/40 transition-all"></div>
-                <div className="w-full h-full rounded-full overflow-hidden border-3 border-brand-green relative z-10 hover:scale-105 transition-transform duration-300">
+              <div className="relative w-40 h-48 mx-auto mb-6">
+                <div className="w-full h-full rounded-xl overflow-hidden border-2 border-gray-200 relative z-10 hover:scale-105 transition-transform duration-300">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"
-                    style={{ 
+                    style={member.imageStyle || { 
                       objectPosition: 'center 25%',
                       transform: 'scale(1.1)'
                     }}
@@ -54,17 +68,49 @@ const Team: React.FC<TeamProps> = ({ t, members }) => {
 
               <div className="text-center">
                 <h3 className="text-gray-900 font-bold text-lg mb-1">{member.name}</h3>
-                <p className="text-brand-green text-xs font-mono mb-2">{member.year}</p>
                 <div className="h-px w-full bg-gray-200 my-3"></div>
-                <p className="text-gray-700 text-sm font-medium mb-2 min-h-[40px]">{member.role}</p>
-                <p className="text-gray-500 text-xs mb-4 line-clamp-2">{member.bio}</p>
+                <p className="text-gray-700 text-sm font-medium">{member.role}</p>
                 
-                <div className="flex justify-center gap-3">
-                  <a href="#" className="text-gray-400 hover:text-brand-green transition-colors">
+                <div className="flex justify-center gap-3 mt-4">
+                  <a 
+                    href={member.linkedin || "#"} 
+                    target={member.linkedin ? "_blank" : "_self"}
+                    rel={member.linkedin ? "noopener noreferrer" : ""}
+                    onClick={(e) => {
+                      if (!handleSocialClick(member.linkedin, "LinkedIn", member.name)) {
+                        e.preventDefault();
+                      }
+                    }}
+                    className="text-gray-400 hover:text-brand-green transition-colors cursor-pointer"
+                  >
                     <Linkedin size={18} />
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-brand-green transition-colors">
+                  <a 
+                    href={member.instagram || "#"} 
+                    target={member.instagram ? "_blank" : "_self"}
+                    rel={member.instagram ? "noopener noreferrer" : ""}
+                    onClick={(e) => {
+                      if (!handleSocialClick(member.instagram, "Instagram", member.name)) {
+                        e.preventDefault();
+                      }
+                    }}
+                    className="text-gray-400 hover:text-brand-green transition-colors cursor-pointer"
+                  >
                     <Instagram size={18} />
+                  </a>
+                  <a 
+                    href={member.portfolio || "#"} 
+                    target={member.portfolio ? "_blank" : "_self"}
+                    rel={member.portfolio ? "noopener noreferrer" : ""}
+                    onClick={(e) => {
+                      if (!handleSocialClick(member.portfolio, "Portfólio", member.name)) {
+                        e.preventDefault();
+                      }
+                    }}
+                    className="text-gray-400 hover:text-brand-green transition-colors cursor-pointer"
+                    title="Ver Portfólio"
+                  >
+                    <Globe size={18} />
                   </a>
                 </div>
               </div>
@@ -72,6 +118,55 @@ const Team: React.FC<TeamProps> = ({ t, members }) => {
           ))}
         </div>
       </div>
+
+      {/* Modal Personalizado */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            onClick={() => setShowModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-xl p-6 max-w-md w-full mx-4 shadow-2xl border border-gray-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-brand-green/10 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-brand-green rounded-full"></div>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900">Link não disponível</h3>
+                </div>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                {modalMessage}
+              </p>
+              
+              <div className="flex justify-end">
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="px-6 py-2 bg-brand-green text-white rounded-lg hover:bg-brand-green/90 transition-colors font-medium"
+                >
+                  Entendi
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

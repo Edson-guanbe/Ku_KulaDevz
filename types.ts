@@ -4,11 +4,11 @@ export interface Translation {
   nav: {
     home: string;
     about: string;
+    services: string;
     projects: string;
     team: string;
     events: string;
     partners: string;
-    sponsors: string;
     contact: string;
   };
   hero: {
@@ -23,6 +23,10 @@ export interface Translation {
     mission: string;
     vision: string;
     values: string;
+  };
+  services: {
+    title: string;
+    subtitle: string;
   };
   projects: {
     title: string;
@@ -64,8 +68,14 @@ export interface Member {
   role: string;
   bio: string;
   image: string;
+  rating: number; // Avaliação de 1-5 estrelas
   linkedin?: string;
-  github?: string;
+  instagram?: string;
+  portfolio?: string;
+  imageStyle?: {
+    objectPosition?: string;
+    transform?: string;
+  };
 }
 
 export interface Project {

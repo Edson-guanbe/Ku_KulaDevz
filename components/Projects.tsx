@@ -52,7 +52,7 @@ const Projects: React.FC<ProjectsProps> = ({ t, projects }) => {
                 <img 
                     src={project.image} 
                     alt={project.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute bottom-4 left-4 z-20 flex flex-wrap gap-2">
                     {project.tags.map(tag => (
