@@ -124,6 +124,9 @@ export const teamMembers: Member[] = [
     role: "Programador Sênior / Segurança / Web",
     bio: "Especialista em segurança da informação e arquitetura web robusta.",
     image: "/images/team/anselmoDora.jpg",
+    portfolio: "https://anselmo-dora-bistiro.vercel.app/",
+    linkedin: "https://mz.linkedin.com/in/anselmo-dora-bistiro-gulane-a68505390",
+    instagram: "https://www.instagram.com/anselmo.offcial_/",
   },
   {
     name: "André Augusto Júnior",
@@ -131,6 +134,9 @@ export const teamMembers: Member[] = [
     role: "Desenvolvimento Web",
     bio: "Focado em criar experiências web modernas e responsivas.",
     image: "/images/team/andre-augusto-junior.jpg",
+    linkedin: "#",
+    instagram: "#",
+    portfolio: "#",
   },
   {
     name: "Anselma Tiburcio",
@@ -138,6 +144,9 @@ export const teamMembers: Member[] = [
     role: "Front-end / Mobile",
     bio: "Paixão por UI/UX e desenvolvimento de aplicações móveis intuitivas.",
     image: "/images/team/anselma-tiburcio.jpg",
+    linkedin: "https://mz.linkedin.com/in/anselma-tiburcio-73165930b",
+    instagram: "https://www.instagram.com/anselmatiburcio/",
+    portfolio: "#",
   },
   {
     name: "Aquilivio Maria",
@@ -145,6 +154,9 @@ export const teamMembers: Member[] = [
     role: "Redes / Infraestrutura",
     bio: "Garante que nossas soluções estejam sempre conectadas e seguras.",
     image: "/images/team/aquilivio-maria.jpg",
+    linkedin: "https://linkedin.com/in/aquilivio-maria",
+    instagram: "https://instagram.com/aquilivio.maria",
+    portfolio: "https://aquiliviomaria.vercel.app/",
   },
   {
     name: "Edson Crimilido",
@@ -152,6 +164,9 @@ export const teamMembers: Member[] = [
     role: "Back-end",
     bio: "O motor por trás das nossas aplicações, lidando com dados complexos.",
     image: "/images/team/edson-crimilido.jpg",
+    portfolio: "https://edson-six.vercel.app",
+    linkedin: "https://www.linkedin.com/in/edson-crimildo-guambe-8780a42b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    instagram: "https://www.instagram.com/naftalyzzdah?igsh=MW9rMzJnZGs2MnRweg==",
   },
   {
     name: "Edilson Ricardo Cuamba",
@@ -159,6 +174,9 @@ export const teamMembers: Member[] = [
     role: "Mobile / Web",
     bio: "Versátil em plataformas cruzadas, unindo web e mobile.",
     image: "/images/team/edilson-ricardo-cuamba.jpg",
+    linkedin: "#",
+    instagram: "#",
+    portfolio: "#",
   },
   {
     name: "Isidro Helder Guiamba",
@@ -166,6 +184,9 @@ export const teamMembers: Member[] = [
     role: "Algoritmos / Lógica",
     bio: "Resolve problemas complexos com lógica eficiente e limpa.",
     image: "/images/team/isidro-helder-guiamba.jpg",
+    linkedin: "#",
+    instagram: "#",
+    portfolio: "#",
   },
   {
     name: "Shelton Tomas",
@@ -173,6 +194,9 @@ export const teamMembers: Member[] = [
     role: "Desenvolvimento de Sistemas",
     bio: "Focado na arquitetura geral e integração de sistemas.",
     image: "/images/team/shelton-tomas.jpg",
+    linkedin: "#",
+    instagram: "#",
+    portfolio: "#",
   }
 ];
 
