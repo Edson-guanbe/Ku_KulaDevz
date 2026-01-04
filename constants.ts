@@ -1,5 +1,9 @@
 import { Member, Project, Translation, Partner } from './types';
 
+// Configurações de tradução e dados da aplicação Ku Kula Devz
+// Última atualização: Janeiro 2026
+// Desenvolvido por: Edson Crimilido Guambe
+
 export const translations: Record<string, Translation> = {
   pt: {
     nav: {
