@@ -186,7 +186,7 @@ export const teamMembers: Member[] = [
     bio: "O motor por trás das nossas aplicações, lidando com dados complexos.",
     image: "/images/team/edsonGuambe.webp",
     rating: 4,
-    portfolio: "https://edson-six.vercel.app",
+    portfolio: "https://edsonguambe.vercel.app",
     linkedin: "https://www.linkedin.com/in/edson-crimildo-guambe-8780a42b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     instagram: "https://www.instagram.com/naftalyzzdah?igsh=MW9rMzJnZGs2MnRweg==",
   },
