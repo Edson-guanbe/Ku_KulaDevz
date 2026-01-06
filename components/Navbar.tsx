@@ -60,7 +60,7 @@ import React, { useState, useEffect } from 'react';
             <div className="flex items-center justify-between h-20 w-full">
               {/* Logo */}
               <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-                <div className={`relative transition-all duration-300 ${scrolled ? 'w-20 h-16' : 'w-20 h-14'} bg-white/90 backdrop-blur-sm rounded-lg p-1 shadow-md`}>
+                <div className={`relative transition-all duration-300 ${scrolled ? 'w-20 h-16' : 'w-20 h-14'}`}>
                   <img 
                     src="/images/ku_kulaDevzlogopro.jpg" 
                     alt="Ku_KulaDevz Logo" 
